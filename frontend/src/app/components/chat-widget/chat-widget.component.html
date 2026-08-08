@@ -1,0 +1,95 @@
+<!-- Floating Trigger Button -->
+<button class="chat-trigger-btn" (click)="toggleChat()" [class.active]="isOpen" aria-label="Ask Abhishek AI Assistant">
+  <div class="glow-ring"></div>
+  <i class="fa-solid" [ngClass]="isOpen ? 'fa-xmark' : 'fa-robot'"></i>
+  <span class="btn-text" *ngIf="!isOpen">Ask AI Assistant</span>
+  <span class="online-dot" *ngIf="!isOpen"></span>
+</button>
+
+<!-- Chat Modal Drawer -->
+<div class="chat-drawer" [class.open]="isOpen">
+  <!-- Header -->
+  <div class="chat-header">
+    <div class="header-info">
+      <div class="avatar-icon">
+        <i class="fa-solid fa-sparkles"></i>
+      </div>
+      <div>
+        <h3>Ask Abhishek's AI Assistant</h3>
+        <p class="status-subtitle">
+          <span class="pulse-indicator"></span> Spring Boot RAG + Gemini API
+        </p>
+      </div>
+    </div>
+    <div class="header-actions">
+      <button (click)="clearChat()" title="Clear Chat History" class="icon-btn">
+        <i class="fa-solid fa-rotate-right"></i>
+      </button>
+      <button (click)="toggleChat()" title="Minimize" class="icon-btn">
+        <i class="fa-solid fa-chevron-down"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Messages Body -->
+  <div class="chat-messages" #scrollContainer>
+    <div *ngFor="let msg of messages" class="message-wrapper" [class.user]="msg.sender === 'user'" [class.bot]="msg.sender === 'bot'">
+      <div class="message-bubble">
+        <div class="sender-tag" *ngIf="msg.sender === 'bot'">
+          <span class="bot-badge">
+            <i class="fa-solid fa-brain"></i> AI Context Engine
+          </span>
+          <span class="gemini-tag" *ngIf="msg.poweredByGemini">
+            <i class="fa-solid fa-wand-magic-sparkles"></i> Gemini 1.5
+          </span>
+        </div>
+        <p class="message-text">{{ msg.text }}</p>
+        
+        <!-- Context Sources Badge -->
+        <div class="sources-list" *ngIf="msg.sources && msg.sources.length > 0">
+          <span class="sources-label"><i class="fa-solid fa-database"></i> Context Chunks:</span>
+          <span *ngFor="let src of msg.sources" class="source-chip">{{ src }}</span>
+        </div>
+
+        <span class="time-stamp">{{ msg.timestamp | date:'shortTime' }}</span>
+      </div>
+    </div>
+
+    <!-- Typing Loader -->
+    <div class="message-wrapper bot" *ngIf="isLoading">
+      <div class="message-bubble loading-bubble">
+        <span class="typing-dot"></span>
+        <span class="typing-dot"></span>
+        <span class="typing-dot"></span>
+        <span class="loading-label">Searching resume context & querying Gemini...</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Suggested Questions Pills -->
+  <div class="suggested-container">
+    <span class="suggested-title"><i class="fa-solid fa-lightbulb"></i> Suggested queries:</span>
+    <div class="pills-scroll">
+      <button *ngFor="let q of suggestedQuestions" (click)="sendSuggested(q)" class="prompt-chip">
+        {{ q }}
+      </button>
+    </div>
+  </div>
+
+  <!-- Input Footer -->
+  <div class="chat-footer">
+    <form (ngSubmit)="sendMessage()" class="input-form">
+      <input
+        type="text"
+        [(ngModel)]="userInput"
+        name="questionInput"
+        placeholder="Ask a question about Abhishek's projects, skills..."
+        [disabled]="isLoading"
+        autocomplete="off"
+      />
+      <button type="submit" [disabled]="!userInput.trim() || isLoading" class="send-btn">
+        <i class="fa-solid fa-paper-plane"></i>
+      </button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,74 @@
+[
+  {
+    "id": "hero_overview",
+    "category": "Overview",
+    "tags": ["abhishek", "mandloi", "title", "role", "experience", "bio", "summary", "overview", "phone", "indore"],
+    "content": "Abhishek Mandloi is a Senior Backend & Big Data Engineer with 4+ years of experience based in Indore, India. Phone: 6265494851 | Email: abhimandloi111@gmail.com | LinkedIn: linkedin.com/in/abhishek-mandloi-8412ba1b2."
+  },
+  {
+    "id": "work_summary",
+    "category": "Summary",
+    "tags": ["summary", "background", "pipeline", "records", "volume", "performance", "realtime", "hdfs", "yarn", "agile"],
+    "content": "Professional Summary: Results-driven Backend Software Engineer with 4+ years of experience in Java, Spring Boot, and Big Data engineering, specializing in building scalable microservices, high-throughput real-time data streaming pipelines (Apache Kafka, HBase, Hadoop, Gathr), and enterprise Generative AI applications (AWS & Gemini RAG chatbots). Adept at owning end-to-end services in fast-paced Agile environments."
+  },
+  {
+    "id": "impetus_role",
+    "category": "Experience",
+    "tags": ["impetus", "company", "role", "experience", "senior software engineer", "dates", "present", "march 2022"],
+    "content": "Current Role: Senior Software Engineer at Impetus Technologies (India) Pvt. Ltd. (March 2022 – Present | India)."
+  },
+  {
+    "id": "metatrail_project",
+    "category": "Projects",
+    "tags": ["metatrail", "big data", "kafka", "hbase", "hdfs", "yarn", "gathr", "klera", "hadoop", "records", "pipeline", "650m", "performance", "60%"],
+    "content": "Key Project - Metatrail Pipeline (Java, J2EE, Spring Boot, Hadoop, HBase, Gathr, Klera, Kafka): Researched and delivered optimum solutions for a large-scale social media Big Data problem focused on stream processing, transformation, and scalable storage on HDFS/YARN clusters. Key achievements: 1) Engineered production-grade pipeline on Gathr processing ~650M social media records/day. 2) Owned end-to-end delivery of Java-based business service for HBase data retrieval, improving retrieval performance by 60%. 3) Validated and deployed data pipelines into production with minimal post-deployment issues. 4) Diagnosed and resolved critical bugs and performance bottlenecks."
+  },
+  {
+    "id": "rag_chatbot_project",
+    "category": "Projects",
+    "tags": ["rag", "chatbot", "genai", "ai", "gemini", "aws", "call center", "query", "resolution", "70%", "automation", "copilot"],
+    "content": "Key Project - RAG-based Call Center Chatbot (AWS, RAG, Generative AI): Designed and built a Retrieval-Augmented Generation (RAG) chatbot on AWS to automate FAQ handling for call center support, reducing average query resolution time by 70%. Leveraged Google Gemini and GitHub Copilot to accelerate development cycles and improve solution design and code quality."
+  },
+  {
+    "id": "skills_programming_bigdata",
+    "category": "Skills",
+    "tags": ["skills", "java", "spring boot", "kafka", "hdfs", "yarn", "gathr", "spark", "j2ee", "big data", "core java"],
+    "content": "Programming & Big Data Skills: Core Java, J2EE, Spring Boot, Apache Kafka, HDFS, YARN, Gathr Platform, Apache Spark."
+  },
+  {
+    "id": "skills_database",
+    "category": "Skills",
+    "tags": ["skills", "database", "hbase", "mysql", "nosql", "sql", "storage"],
+    "content": "Database & NoSQL Skills: HBase, MySQL (RDBMS)."
+  },
+  {
+    "id": "skills_tools_platforms",
+    "category": "Skills",
+    "tags": ["skills", "tools", "platforms", "klera", "gathr", "winscp", "offset explorer", "ide", "intellij", "windsurf", "git", "svn"],
+    "content": "Tools, IDEs & Version Control: Klera, Gathr, WinSCP, Offset Explorer, IntelliJ IDEA, Windsurf, Git, SVN."
+  },
+  {
+    "id": "skills_devops",
+    "category": "Skills",
+    "tags": ["skills", "devops", "jenkins", "docker", "kubernetes", "k8s", "ci/cd"],
+    "content": "DevOps Skills: Jenkins, Docker, Kubernetes."
+  },
+  {
+    "id": "skills_ai_tools",
+    "category": "Skills",
+    "tags": ["skills", "ai", "gemini", "copilot", "github copilot", "aws", "generative ai", "rag", "llm"],
+    "content": "AI Tools: Google Gemini, GitHub Copilot, AWS AI Services."
+  },
+  {
+    "id": "education",
+    "category": "Education",
+    "tags": ["education", "degree", "btech", "computer science", "university", "sage", "indore", "school", "navodaya", "12th", "10th"],
+    "content": "Education Details: 1) Bachelor of Technology (B.Tech) in Computer Science from Sage University, Indore (2018–2022). 2) 12th Standard from Jawahar Navodaya Vidyalaya, Indore (2017–2018). 3) 10th Standard from Jawahar Navodaya Vidyalaya, Indore (2015–2016)."
+  },
+  {
+    "id": "contact_links",
+    "category": "Contact",
+    "tags": ["contact", "email", "linkedin", "phone", "location", "indore", "hire", "reach", "resume"],
+    "content": "Contact Information: Location: Indore, India | Phone: 6265494851 | Email: abhimandloi111@gmail.com | LinkedIn: linkedin.com/in/abhishek-mandloi-8412ba1b2. Resume PDF available for download on portfolio."
+  }
+]

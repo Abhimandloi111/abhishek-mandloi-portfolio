@@ -1,0 +1,398 @@
+<!-- Navbar -->
+<header class="site-header">
+  <div class="container header-container">
+    <a href="#" class="brand-logo">
+      <span class="logo-accent">&lt;</span>Abhishek.M<span class="logo-accent"> /&gt;</span>
+    </a>
+
+    <nav class="desktop-nav">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#rag-demo" class="nav-highlight"><i class="fa-solid fa-sparkles"></i> Ask AI</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="header-actions">
+      <a [href]="resumePdf" download="Abhishek_Mandloi_Resume.pdf" class="btn-resume-header" title="Download Resume PDF">
+        <i class="fa-solid fa-file-arrow-down"></i> Resume
+      </a>
+      <a href="https://www.linkedin.com/in/abhishek-mandloi-8412ba1b2/" target="_blank" rel="noopener" class="icon-link" title="LinkedIn">
+        <i class="fa-brands fa-linkedin"></i>
+      </a>
+      <a href="mailto:abhimandloi111@gmail.com" class="icon-link" title="Email Me">
+        <i class="fa-solid fa-envelope"></i>
+      </a>
+      <button class="mobile-toggle" (click)="toggleMobileMenu()" aria-label="Toggle Navigation">
+        <i class="fa-solid" [ngClass]="mobileMenuOpen ? 'fa-xmark' : 'fa-bars'"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Drawer Nav -->
+  <div class="mobile-drawer" [class.open]="mobileMenuOpen">
+    <a href="#about" (click)="toggleMobileMenu()">About</a>
+    <a href="#skills" (click)="toggleMobileMenu()">Skills</a>
+    <a href="#experience" (click)="toggleMobileMenu()">Experience</a>
+    <a href="#education" (click)="toggleMobileMenu()">Education</a>
+    <a href="#rag-demo" (click)="toggleMobileMenu()"><i class="fa-solid fa-sparkles"></i> Ask AI</a>
+    <a href="#contact" (click)="toggleMobileMenu()">Contact</a>
+    <a [href]="resumePdf" download="Abhishek_Mandloi_Resume.pdf" (click)="toggleMobileMenu()" class="btn-primary">
+      <i class="fa-solid fa-file-arrow-down"></i> Download Resume PDF
+    </a>
+  </div>
+</header>
+
+<main>
+  <!-- Ambient Backdrops -->
+  <div class="ambient-glow" style="top: 5%; left: 10%; width: 450px; height: 450px; background: rgba(16, 185, 129, 0.15);"></div>
+  <div class="ambient-glow" style="top: 45%; right: 5%; width: 500px; height: 500px; background: rgba(6, 182, 212, 0.12);"></div>
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero-section">
+    <div class="container hero-container-grid">
+      
+      <!-- Hero Left Text Column -->
+      <div class="hero-text">
+        <div class="badge">
+          <i class="fa-solid fa-circle-check"></i> 4+ Years Experience | Senior Software Engineer
+        </div>
+
+        <h1 class="hero-title">
+          Hi, I'm <span class="gradient-text">Abhishek Mandloi</span>
+        </h1>
+
+        <h2 class="hero-subtitle">
+          Senior Software Engineer | Java, Spring Boot & Big Data
+        </h2>
+
+        <p class="hero-tagline">
+          Results-driven Senior Backend & Big Data Engineer with 4+ years of experience building scalable microservices, high-throughput data streaming pipelines, and enterprise Generative AI solutions.
+        </p>
+
+        <div class="hero-cta-group">
+          <a [href]="resumePdf" download="Abhishek_Mandloi_Resume.pdf" class="btn-primary glow-btn">
+            <i class="fa-solid fa-file-arrow-down"></i> Download Resume
+          </a>
+          <a href="#contact" class="btn-secondary">
+            <i class="fa-solid fa-paper-plane"></i> Contact Me
+          </a>
+          <a href="https://www.linkedin.com/in/abhishek-mandloi-8412ba1b2/" target="_blank" rel="noopener" class="btn-secondary">
+            <i class="fa-brands fa-linkedin"></i> LinkedIn
+          </a>
+        </div>
+
+        <!-- Metrics Grid -->
+        <div class="metrics-grid">
+          <div class="metric-card glass-card">
+            <span class="metric-val">~650M</span>
+            <span class="metric-lbl">Daily Records Processed</span>
+          </div>
+          <div class="metric-card glass-card">
+            <span class="metric-val">60%</span>
+            <span class="metric-lbl">HBase Query Perf Boost</span>
+          </div>
+          <div class="metric-card glass-card">
+            <span class="metric-val">70%</span>
+            <span class="metric-lbl">RAG Query Time Reduction</span>
+          </div>
+          <div class="metric-card glass-card">
+            <span class="metric-val">4+ Yrs</span>
+            <span class="metric-lbl">Big Data & Java Experience</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Right Column: Professional Profile Photo Card -->
+      <div class="hero-photo-col">
+        <div class="photo-card-wrapper glass-card">
+          <div class="photo-frame">
+            <img [src]="profilePhoto" alt="Abhishek Mandloi - Senior Software Engineer" class="profile-img">
+            <div class="photo-glow-ring"></div>
+          </div>
+          <div class="photo-card-details">
+            <h3 class="photo-name">Abhishek Mandloi</h3>
+            <p class="photo-title"><i class="fa-solid fa-code"></i> Senior Software Engineer</p>
+            <p class="photo-location"><i class="fa-solid fa-location-dot"></i> Indore, India</p>
+            <div class="photo-tags">
+              <span class="tag-pill">Java 21</span>
+              <span class="tag-pill">Spring Boot</span>
+              <span class="tag-pill">Kafka</span>
+              <span class="tag-pill">HBase</span>
+              <span class="tag-pill">Gemini RAG</span>
+            </div>
+            <a [href]="resumePdf" download="Abhishek_Mandloi_Resume.pdf" class="btn-photo-download">
+              <i class="fa-solid fa-download"></i> Get Resume (PDF)
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="section">
+    <div class="container">
+      <h2 class="section-title">
+        <i class="fa-solid fa-user title-icon"></i>
+        <span class="gradient-text">About Me</span>
+      </h2>
+      <p class="section-subtitle">
+        Architecting resilient, large-scale distributed systems and intelligent RAG automation.
+      </p>
+
+      <div class="about-grid">
+        <div class="glass-card about-card">
+          <div class="card-icon"><i class="fa-solid fa-network-wired"></i></div>
+          <h3>Big Data & Stream Processing</h3>
+          <p>
+            With 4+ years as a Senior Software Engineer at Impetus Technologies, I specialize in building distributed data pipelines using <strong>Core Java, Spring Boot, Apache Kafka, HDFS, YARN, HBase</strong>, and the <strong>Gathr Platform</strong>. My pipelines process <strong>~650 million social media records daily</strong> in production cluster environments.
+          </p>
+        </div>
+
+        <div class="glass-card about-card">
+          <div class="card-icon"><i class="fa-solid fa-brain"></i></div>
+          <h3>Generative AI & RAG Engineering</h3>
+          <p>
+            Pioneering production AI integrations. I designed and deployed an automated <strong>Retrieval-Augmented Generation (RAG) chatbot</strong> for call center automation on AWS using <strong>Google Gemini API and GitHub Copilot</strong>, achieving a 70% reduction in query resolution time.
+          </p>
+        </div>
+
+        <div class="glass-card about-card">
+          <div class="card-icon"><i class="fa-solid fa-gears"></i></div>
+          <h3>DevOps & Service Ownership</h3>
+          <p>
+            End-to-end service ownership in fast-paced Agile environments — from design through production support. Experienced with <strong>Jenkins CI/CD, Docker containerization, Kubernetes cluster management</strong>, performance bottleneck resolution, and minimal post-deployment overhead.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="section">
+    <div class="container">
+      <h2 class="section-title">
+        <i class="fa-solid fa-layer-group title-icon"></i>
+        <span class="gradient-text">Technical Skills</span>
+      </h2>
+      <p class="section-subtitle">
+        Enterprise-proven technologies, platforms, tools, and AI systems.
+      </p>
+
+      <div class="skills-grid">
+        <div *ngFor="let cat of skillsCategories" class="glass-card skill-category-card">
+          <div class="category-header">
+            <i [class]="cat.icon" class="cat-icon"></i>
+            <h3>{{ cat.name }}</h3>
+          </div>
+          <div class="skills-chips font-body">
+            <span *ngFor="let skill of cat.skills" class="skill-tag">
+              {{ skill }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience" class="section">
+    <div class="container">
+      <h2 class="section-title">
+        <i class="fa-solid fa-briefcase title-icon"></i>
+        <span class="gradient-text">Professional Experience</span>
+      </h2>
+      <p class="section-subtitle">
+        Track record of engineering high-impact enterprise data solutions.
+      </p>
+
+      <div class="timeline">
+        <div *ngFor="let exp of experiences" class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="glass-card timeline-card">
+            <div class="exp-header">
+              <div>
+                <h3 class="exp-role">{{ exp.role }}</h3>
+                <h4 class="exp-company">{{ exp.company }}</h4>
+                <p class="exp-location"><i class="fa-solid fa-location-dot"></i> {{ exp.location }}</p>
+              </div>
+              <div class="exp-meta">
+                <span class="badge"><i class="fa-solid fa-calendar"></i> {{ exp.duration }}</span>
+              </div>
+            </div>
+
+            <p class="exp-desc">{{ exp.description }}</p>
+
+            <!-- Key Projects Breakdown -->
+            <div class="projects-list">
+              <div *ngFor="let proj of exp.projects" class="project-box">
+                <div class="project-title-row">
+                  <div>
+                    <h5 class="proj-title"><i class="fa-solid fa-diagram-project"></i> {{ proj.title }}</h5>
+                    <p class="proj-tech-summary" *ngIf="proj.techSummary">{{ proj.techSummary }}</p>
+                  </div>
+                  <span class="metric-badge">{{ proj.metrics }}</span>
+                </div>
+
+                <ul class="proj-bullets">
+                  <li *ngFor="let bullet of proj.bullets">{{ bullet }}</li>
+                </ul>
+
+                <div class="proj-tech-stack">
+                  <span *ngFor="let t of proj.tech" class="tech-pill">{{ t }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section id="education" class="section">
+    <div class="container">
+      <h2 class="section-title">
+        <i class="fa-solid fa-graduation-cap title-icon"></i>
+        <span class="gradient-text">Education</span>
+      </h2>
+      <p class="section-subtitle">Academic degree and school qualifications.</p>
+
+      <div class="education-grid">
+        <div *ngFor="let edu of educationList" class="education-card glass-card">
+          <div class="edu-icon"><i class="fa-solid fa-university"></i></div>
+          <div class="edu-details">
+            <h3>{{ edu.degree }}</h3>
+            <h4>{{ edu.institution }}</h4>
+            <span class="edu-year"><i class="fa-regular fa-calendar"></i> {{ edu.period }}</span>
+            <p>{{ edu.details }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RAG Feature Spotlight Section -->
+  <section id="rag-demo" class="section rag-spotlight-section">
+    <div class="container">
+      <div class="glass-card rag-banner">
+        <div class="rag-text">
+          <div class="badge"><i class="fa-solid fa-sparkles"></i> Interactive AI Feature</div>
+          <h2>Ask Me Anything — Live RAG Assistant</h2>
+          <p>
+            Experience a live demonstration of my Java Spring Boot + Google Gemini API RAG architecture. Click the floating chat widget on the bottom-right to test questions regarding my social media stream processing metrics, technical skills, or resume history!
+          </p>
+          <div class="rag-features">
+            <span><i class="fa-solid fa-check text-emerald"></i> Server-side Gemini 1.5 Integration</span>
+            <span><i class="fa-solid fa-check text-emerald"></i> Resume Chunk Context Retrieval</span>
+            <span><i class="fa-solid fa-check text-emerald"></i> Grounded Responses</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section">
+    <div class="container">
+      <h2 class="section-title">
+        <i class="fa-solid fa-comments title-icon"></i>
+        <span class="gradient-text">Get In Touch</span>
+      </h2>
+      <p class="section-subtitle">
+        Have an opportunity, question, or collaboration in mind? Feel free to reach out!
+      </p>
+
+      <div class="contact-grid">
+        <div class="contact-cards-col">
+          <a href="mailto:abhimandloi111@gmail.com" class="glass-card contact-card">
+            <div class="c-icon"><i class="fa-solid fa-envelope"></i></div>
+            <div>
+              <h4>Email</h4>
+              <p>abhimandloi111&#64;gmail.com</p>
+            </div>
+          </a>
+
+          <a href="tel:6265494851" class="glass-card contact-card">
+            <div class="c-icon"><i class="fa-solid fa-phone"></i></div>
+            <div>
+              <h4>Phone</h4>
+              <p>+91 6265494851</p>
+            </div>
+          </a>
+
+          <a href="https://www.linkedin.com/in/abhishek-mandloi-8412ba1b2/" target="_blank" rel="noopener" class="glass-card contact-card">
+            <div class="c-icon"><i class="fa-brands fa-linkedin"></i></div>
+            <div>
+              <h4>LinkedIn</h4>
+              <p>in/abhishek-mandloi-8412ba1b2</p>
+            </div>
+          </a>
+
+          <div class="glass-card contact-card">
+            <div class="c-icon"><i class="fa-solid fa-location-dot"></i></div>
+            <div>
+              <h4>Location</h4>
+              <p>Indore, India</p>
+            </div>
+          </div>
+
+          <a [href]="resumePdf" download="Abhishek_Mandloi_Resume.pdf" class="glass-card contact-card resume-download-card">
+            <div class="c-icon download-icon-bg"><i class="fa-solid fa-file-arrow-down"></i></div>
+            <div>
+              <h4>Resume Document</h4>
+              <p>Download Abhishek Mandloi Resume (PDF)</p>
+            </div>
+          </a>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="glass-card form-card">
+          <form (submit)="sendEmail($event)" class="contact-form">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" [(ngModel)]="contact.name" name="name" placeholder="John Doe" required>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Your Email</label>
+              <input type="email" id="email" [(ngModel)]="contact.email" name="email" placeholder="john&#64;example.com" required>
+            </div>
+
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" [(ngModel)]="contact.subject" name="subject" placeholder="Senior Java / Big Data Engineer Opportunity" required>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" [(ngModel)]="contact.message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary form-submit-btn">
+              <i class="fa-solid fa-paper-plane"></i> Send Email
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="container footer-content">
+    <p>© 2026 Abhishek Mandloi. Built with Angular 18, Spring Boot 3 & Google Gemini API.</p>
+    <div class="footer-links">
+      <a [href]="resumePdf" download="Abhishek_Mandloi_Resume.pdf"><i class="fa-solid fa-file-pdf"></i> Download Resume</a>
+      <a href="https://www.linkedin.com/in/abhishek-mandloi-8412ba1b2/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+      <a href="mailto:abhimandloi111@gmail.com"><i class="fa-solid fa-envelope"></i> Email</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Floating RAG Chat Widget -->
+<app-chat-widget></app-chat-widget>

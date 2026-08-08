@@ -1,0 +1,24 @@
+# IDE & Editor files
+.idea/
+*.iml
+.vscode/
+*.swp
+*.DS_Store
+
+# Node / Angular
+**/node_modules/
+**/dist/
+**/.angular/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Java / Maven
+**/target/
+*.class
+*.jar
+*.war
+
+# Environment overrides
+.env
+.env.local

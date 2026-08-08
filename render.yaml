@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: abhishek-mandloi-backend
+    env: java
+    rootDir: backend
+    buildCommand: mvn clean package -DskipTests
+    startCommand: java -jar target/portfolio-backend-1.0.0.jar
+    envVars:
+      - key: GEMINI_API_KEY
+        sync: false
