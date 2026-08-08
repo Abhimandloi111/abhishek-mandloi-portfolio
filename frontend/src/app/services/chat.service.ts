@@ -21,7 +21,7 @@ export interface ChatResponse {
 })
 export class ChatService {
   // Update this to your deployed Spring Boot backend URL in production
-  private apiUrl = 'http://localhost:8080/api/chat';
+  private apiUrl = 'https://abhishek-mandloi-portfolio.onrender.com/api/chat';
 
   constructor(private http: HttpClient) {}
 
