@@ -2,8 +2,8 @@
   {
     "id": "hero_overview",
     "category": "Overview",
-    "tags": ["abhishek", "mandloi", "title", "role", "experience", "bio", "summary", "overview", "phone", "indore"],
-    "content": "Abhishek Mandloi is a Senior Backend & Big Data Engineer with 4+ years of experience based in Indore, India. Phone: 6265494851 | Email: abhimandloi111@gmail.com | LinkedIn: linkedin.com/in/abhishek-mandloi-8412ba1b2."
+    "tags": ["abhishek", "mandloi", "title", "role", "experience", "bio", "summary", "overview", "indore"],
+    "content": "Abhishek Mandloi is a Senior Backend & Big Data Engineer with 4+ years of experience based in Indore, India. Email: abhimandloi111@gmail.com | LinkedIn: linkedin.com/in/abhishek-mandloi-8412ba1b2."
   },
   {
     "id": "work_summary",
@@ -68,7 +68,7 @@
   {
     "id": "contact_links",
     "category": "Contact",
-    "tags": ["contact", "email", "linkedin", "phone", "location", "indore", "hire", "reach", "resume"],
-    "content": "Contact Information: Location: Indore, India | Phone: 6265494851 | Email: abhimandloi111@gmail.com | LinkedIn: linkedin.com/in/abhishek-mandloi-8412ba1b2. Resume PDF available for download on portfolio."
+    "tags": ["contact", "email", "linkedin", "location", "indore", "hire", "reach", "resume"],
+    "content": "Contact Information: Location: Indore, India | Email: abhimandloi111@gmail.com | LinkedIn: linkedin.com/in/abhishek-mandloi-8412ba1b2. Resume PDF available for download on portfolio."
   }
 ]
