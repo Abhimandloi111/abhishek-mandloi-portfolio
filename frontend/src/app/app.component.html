@@ -275,6 +275,28 @@
     </div>
   </section>
 
+  <!-- Awards & Recognition Section -->
+  <section id="awards" class="section">
+    <div class="container">
+      <h2 class="section-title">
+        <i class="fa-solid fa-trophy title-icon"></i>
+        <span class="gradient-text">Awards & Recognition</span>
+      </h2>
+      <p class="section-subtitle">Honors and transformational performance awards earned at Impetus Technologies.</p>
+
+      <div class="education-grid">
+        <div *ngFor="let award of awardsList" class="education-card glass-card">
+          <div class="edu-icon" style="background: rgba(245, 158, 11, 0.15); color: #F59E0B;"><i class="fa-solid fa-award"></i></div>
+          <div class="edu-details">
+            <h3>{{ award.title }}</h3>
+            <h4 style="color: #F59E0B;">{{ award.organization }}</h4>
+            <p>{{ award.description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- RAG Feature Spotlight Section -->
   <section id="rag-demo" class="section rag-spotlight-section">
     <div class="container">

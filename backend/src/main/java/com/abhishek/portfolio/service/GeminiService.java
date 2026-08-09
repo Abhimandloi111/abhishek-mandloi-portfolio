@@ -39,7 +39,7 @@ public class GeminiService {
 
     private final ObjectMapper objectMapper = new ObjectMapper();
 
-    // Guardrail pattern to scrub mobile numbers from responses
+    // Guardrail pattern to scrub mobile numbers from responses for privacy
     private static final Pattern PHONE_GUARDRAIL_PATTERN = Pattern.compile("(\\+?91[\\-\\s]?)?[6-9]\\d{9}");
 
     public ChatResponse generateAnswer(String question, List<ResumeChunk> contextChunks) {
@@ -87,10 +87,11 @@ public class GeminiService {
                 
                 RESPONSE RULES:
                 1. For greetings (e.g. "Hi", "Hello", "Hey"), respond warmly and professionally as Abhishek's virtual assistant.
-                2. If the user asks about something NOT mentioned in the provided context (such as personal hobbies, marital status, salary, or private details if unlisted), reply politely and softly like:
-                   "I don't have information about Abhishek's [topic] in my knowledge base. However, I can tell you about his professional experience, Java/Spring Boot skills, Big Data streaming projects, or how to contact him via email."
+                2. If the user asks about something NOT mentioned in the provided context (such as marital status, private family details, etc.), reply politely and softly like:
+                   "I don't have information about Abhishek's [topic] in my knowledge base. However, I can tell you about his professional experience, awards, Big Data projects, or how to contact him via email."
                 3. DO NOT dump raw, unrelated resume text or bullet lists when a question is out of scope or missing from context.
-                4. Keep answers clear, friendly, structured, and professional.
+                4. Highlight his awards (Star of the Month, Excellence/Transformational Performance Award) and career growth from fresher to Senior Software Engineer at Impetus Technologies when relevant.
+                5. Keep answers clear, friendly, structured, and professional.
                 
                 Retrieved Portfolio Context:
                 %s
@@ -152,7 +153,7 @@ public class GeminiService {
 
         // 1. Handle Greetings
         if (lowerQ.matches("^(hi|hello|hey|greetings|hola|good morning|good afternoon|good evening).*") || lowerQ.length() <= 3) {
-            return "Hello! 👋 Welcome to Abhishek Mandloi's portfolio. I'm his AI Assistant. Feel free to ask me about Abhishek's experience in Java, Spring Boot, Big Data streaming (~650M records/day), or how to contact him via email!";
+            return "Hello! 👋 Welcome to Abhishek Mandloi's portfolio. I'm his AI Assistant. Feel free to ask me about Abhishek's experience in Java, Spring Boot, Big Data streaming (~650M records/day), his awards at Impetus Technologies, or how to email him!";
         }
 
         // 2. Handle Contact / Mobile / Phone (Privacy Guardrail Enforced)
@@ -160,26 +161,31 @@ public class GeminiService {
             return "✉️ For direct inquiries, you can reach **Abhishek Mandloi** via email at **abhimandloi111@gmail.com** or connect with him professionally on [LinkedIn](https://www.linkedin.com/in/abhishek-mandloi-8412ba1b2/).";
         }
 
-        // 3. Handle Hobbies / Off-duty Interests (Soft Out-of-Scope Reply)
+        // 3. Handle Awards & Achievements
+        if (lowerQ.contains("award") || lowerQ.contains("achievement") || lowerQ.contains("star") || lowerQ.contains("excellence") || lowerQ.contains("recognition")) {
+            return "🏆 **Abhishek Mandloi's Awards & Recognition at Impetus Technologies:**\n\n" +
+                   "• ⭐ **Star of the Month Award**: Received this recognition **multiple times** for consistent high performance and contribution to project goals.\n" +
+                   "• 🏅 **Excellence Award (Transformational Performance Award)**: Awarded in recognition of transformational impact and outstanding performance in project delivery.";
+        }
+
+        // 4. Handle Hobbies & Passions
         if (lowerQ.contains("hobby") || lowerQ.contains("hobbies") || lowerQ.contains("interest") || lowerQ.contains("free time") || lowerQ.contains("passions")) {
-            // Check if any chunk explicitly mentions hobbies
-            boolean hasHobbiesChunk = chunks.stream().anyMatch(c -> c.category().equalsIgnoreCase("Hobbies") || c.tags().contains("hobbies"));
-            if (hasHobbiesChunk) {
-                String hobbiesContent = chunks.stream()
-                        .filter(c -> c.category().equalsIgnoreCase("Hobbies") || c.tags().contains("hobbies"))
-                        .map(ResumeChunk::content)
-                        .collect(Collectors.joining("\n"));
-                return "🎨 **Abhishek's Hobbies & Interests:**\n\n" + hobbiesContent;
-            }
-            return "I don't have details about Abhishek's personal hobbies or off-duty activities in my current knowledge base. However, I can share details about his technical expertise in Java, Spring Boot, Big Data pipelines, or his project achievements!";
+            return "🎨 **Abhishek's Hobbies & Interests:**\n\n" +
+                   "Abhishek enjoys exploring emerging AI tools (Google Gemini, GitHub Copilot), experimenting with new software architectures, learning modern cloud technologies, and continuous self-improvement in software engineering.";
         }
 
-        // 4. Handle Out-of-Scope / Personal Questions (Salary, Marital, Family, etc.)
+        // 5. Handle Career Journey / Growth
+        if (lowerQ.contains("journey") || lowerQ.contains("growth") || lowerQ.contains("fresher") || lowerQ.contains("join") || lowerQ.contains("promotion")) {
+            return "🚀 **Abhishek's Career Journey:**\n\n" +
+                   "Abhishek joined **Impetus Technologies (India) Pvt. Ltd.** as a fresher in **March 2022** and rapidly advanced into a **Senior Software Engineer** role, architecting high-throughput Big Data pipelines (~650M records/day) and production Generative AI applications.";
+        }
+
+        // 6. Handle Out-of-Scope / Private Questions
         if (lowerQ.contains("salary") || lowerQ.contains("marital") || lowerQ.contains("age") || lowerQ.contains("family") || lowerQ.contains("personal")) {
-            return "I don't have information on Abhishek's personal details or private topics in my knowledge base. I can answer questions about his professional experience, education, skills, and projects!";
+            return "I don't have information on Abhishek's private personal details or salary topics in my knowledge base. I can answer questions about his professional experience, awards, education, skills, and projects!";
         }
 
-        // 5. Handle Education
+        // 7. Handle Education
         if (lowerQ.contains("education") || lowerQ.contains("degree") || lowerQ.contains("college") || lowerQ.contains("university") || lowerQ.contains("school") || lowerQ.contains("10th") || lowerQ.contains("12th")) {
             return "🎓 **Abhishek Mandloi's Education:**\n\n" +
                    "• **B.Tech in Computer Science**: Sage University, Indore (2018 – 2022)\n" +
@@ -187,22 +193,23 @@ public class GeminiService {
                    "• **10th Standard**: Jawahar Navodaya Vidyalaya, Indore (2015 – 2016)";
         }
 
-        // 6. Handle Experience / Impetus / Projects
+        // 8. Handle Experience / Impetus / Projects
         if (lowerQ.contains("metatrail") || lowerQ.contains("impetus") || lowerQ.contains("project") || lowerQ.contains("experience") || lowerQ.contains("work")) {
             return "💼 **Abhishek Mandloi's Experience Highlights:**\n\n" +
                    "• **Current Role**: Senior Software Engineer at **Impetus Technologies** (March 2022 – Present).\n" +
                    "• **Metatrail Project**: Built real-time streaming pipeline processing **~650 million social media records/day** using Core Java, Spring Boot, Kafka, HBase, and Gathr platform on HDFS/YARN, achieving a **60% data retrieval performance gain**.\n" +
-                   "• **Generative AI Chatbot**: Built an AWS + Google Gemini RAG assistant that reduced call center query resolution time by **70%**.";
+                   "• **Generative AI Chatbot**: Built an AWS + Google Gemini RAG assistant that reduced call center query resolution time by **70%**.\n" +
+                   "• **Awards**: Multiple-time **Star of the Month** & **Excellence (Transformational Performance) Award** winner.";
         }
 
-        // 7. Default soft fallback when question is outside stored topics
-        return "I don't have detailed information regarding that specific topic in my portfolio knowledge base. Feel free to ask about Abhishek's 4+ years of Java/Spring Boot experience, Big Data streaming architecture (~650M records/day), education, or how to email him!";
+        // 9. Default soft fallback when question is outside stored topics
+        return "I don't have detailed information regarding that specific topic in my portfolio knowledge base. Feel free to ask about Abhishek's 4+ years of Java/Spring Boot experience, Big Data streaming architecture (~650M records/day), awards at Impetus, or how to email him!";
     }
 
     private String applyPrivacyGuardrail(String text) {
         if (text == null) return "";
         // Redact any 10-digit or 12-digit Indian phone numbers
-        String sanitized = PHONE_GUARDRAIL_PATTERN.matcher(text).replaceAll("[Phone number redacted for privacy — Please contact via email]");
+        String sanitized = PHONE_GUARDRAIL_PATTERN.matcher(text).replaceAll("[Contact via email: abhimandloi111@gmail.com]");
         return sanitized;
     }
 }

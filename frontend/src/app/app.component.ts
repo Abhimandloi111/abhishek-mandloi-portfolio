@@ -117,6 +117,19 @@ export class AppComponent {
     }
   ];
 
+  awardsList = [
+    {
+      title: 'Star of the Month Award',
+      organization: 'Impetus Technologies',
+      description: 'Received multiple times for consistent high performance, dedication, and outstanding technical contribution to project goals.'
+    },
+    {
+      title: 'Excellence Award (Transformational Performance)',
+      organization: 'Impetus Technologies',
+      description: 'Awarded in recognition of transformational impact, driving high data retrieval efficiency, and outstanding project delivery.'
+    }
+  ];
+
   toggleMobileMenu() {
     this.mobileMenuOpen = !this.mobileMenuOpen;
   }
