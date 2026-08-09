@@ -3,7 +3,13 @@
     "id": "hero_overview",
     "category": "Overview",
     "tags": ["abhishek", "mandloi", "title", "role", "experience", "bio", "summary", "overview", "indore"],
-    "content": "Abhishek Mandloi is a Senior Software Engineer with 4+ years of experience based in Indore, Madhya Pradesh, India. Email: abhimandloi111@gmail.com | LinkedIn: linkedin.com/in/abhishek-mandloi-8412ba1b2."
+    "content": "Abhishek Mandloi is a Senior Backend & Big Data Engineer with 4+ years of experience based in Indore, Madhya Pradesh, India. Email: abhimandloi111@gmail.com | LinkedIn: linkedin.com/in/abhishek-mandloi-8412ba1b2."
+  },
+  {
+    "id": "about_me_narrative",
+    "category": "About Me",
+    "tags": ["about", "bio", "mandloi", "narrative", "impetus", "metatrail", "opportunities", "intersection", "generative ai"],
+    "content": "About Me Narrative: I’m Abhishek Mandloi, a Senior Software Engineer with 4+ years of experience building scalable backend systems using Java, Spring Boot, and Big Data technologies. At Impetus Technologies, I work on Metatrail, a large-scale social media data platform processing ~650M records daily using Kafka, Gathr, HBase, and HDFS/YARN. I also develop Java-based services for high-performance data retrieval, achieving a 60% improvement in performance. I’m passionate about Generative AI and have built a RAG-based chatbot that reduced call-center query resolution time by 70%. I’m also experienced with Docker, Kubernetes, Jenkins, and modern AI-assisted development tools. I’m currently exploring opportunities to build high-scale, reliable systems while continuing to grow at the intersection of backend engineering, distributed systems, and Generative AI."
   },
   {
     "id": "work_summary",
