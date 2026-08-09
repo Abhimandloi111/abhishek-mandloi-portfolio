@@ -42,7 +42,7 @@ export class AppComponent {
     {
       name: 'Tools & Platforms',
       icon: 'fa-solid fa-toolbox',
-      skills: ['Klera', 'Gathr', 'WinSCP', 'Offset Explorer']
+      skills: ['Klera', 'Gathr', 'Postman', 'WinSCP', 'Offset Explorer']
     },
     {
       name: 'DevOps & Containers',
